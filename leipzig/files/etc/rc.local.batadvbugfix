@@ -1,8 +1,12 @@
 #!/bin/sh 
 # Freifunk Leipzig cron
-# $Id: freifunk-leipzig  2014-04-21 23:51:08Z ufo $
+# $Id: freifunk-leipzig  2016-04-20 23:51:08Z ufo $
 
-#batctl -m bat12 if add wlan0.12
+#batctl -m bat12 if add eth0.1
+#batctl -m bat12 if add eth0.2
+#batctl -m bat12 if add eth0
+#batctl -m bat12 if add eth1
+
 #batctl -m bat14 if add wlan0.14
 #batctl -m bat12 if add wlan1.12
 #batctl -m bat14 if add wlan1.14
