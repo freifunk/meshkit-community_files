@@ -80,7 +80,7 @@ uci commit wireless
 uci set network.mesh12=interface
 uci set network.mesh12.type=bridge
 uci set network.mesh12.ifname=bat12
-uci set network.mesh12.proto=dhcp
+uci set network.mesh12.proto=none
 uci set network.mesh12.defaultroute=0
 uci set network.mesh12.peerdns=0
 uci commit network
@@ -115,7 +115,7 @@ uci commit wireless
 uci set network.mesh61=interface
 uci set network.mesh61.type=bridge
 uci set network.mesh61.ifname=bat61
-uci set network.mesh61.proto=dhcp
+uci set network.mesh61.proto=none
 uci set network.mesh61.defaultroute=0
 uci set network.mesh61.peerdns=0
 uci commit network
