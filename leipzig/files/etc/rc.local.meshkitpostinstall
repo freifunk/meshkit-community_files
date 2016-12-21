@@ -8,6 +8,12 @@ grep -q reboot /etc/crontabs/root || echo "2 1 * * *  /sbin/reboot -f" >> /etc/c
 #grep -q alfred /etc/crontabs/root || echo "2 2 * * *  /etc/init.d/alfred restart" >> /etc/crontabs/root
 grep -q olsrd.pid /etc/init.d/olsrd || echo "PID=/var/run/olsrd.pid" >> /etc/init.d/olsrd
 
+# quickfix for LEDE special issue, see https://plan.leipzig.freifunk.net/issues/360
+uci delete wireless.default_radio0
+uci delete wireless.default_radio1
+uci commit
+
+#wireless tuning
 for radio in radio0 radio1; do
   channel=$( uci -q get wireless.$radio.channel )
   [ ! $channel ] && continue
