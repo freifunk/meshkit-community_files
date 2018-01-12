@@ -59,8 +59,7 @@ uci commit
 
 ## batman-adv teil
 
-testalfred=$(opkg list-installed | grep alfred | wc -l )
-  if [ $testalfred -eq 1 ]; then
+  if [ -f /usr/sbin/alfred ]; then
 
  uci set alfred.alfred.interface=br-mesh12
  uci set alfred.alfred.batmanif=bat12
@@ -69,8 +68,7 @@ testalfred=$(opkg list-installed | grep alfred | wc -l )
  /etc/init.d/alfred enable
  fi
 
-testbatman=$(opkg list-installed | grep batman | wc -l )
-  if [ $testbatman -eq 1 ]; then
+  if [ -f /usr/sbin/batctl ]; then
 
 
 uci set wireless.radio0_meshap12=wifi-iface
@@ -252,9 +250,7 @@ fi
 #end of batman-adv teil
 fi
 
-
-testcollectd=$(opkg list-installed | grep collectd-mod-ping | wc -l )
-  if [ $testcollectd -eq 1 ]; then
+  if [ -f /usr/sbin/collectd ]; then
 echo collectd
 
 uci set luci_statistics.rrdtool.image_width=720
@@ -279,10 +275,7 @@ uci set luci_statistics.rrdtool.image_width=720
 
 fi
 
-
-
-testkadnode=$(opkg list-installed | grep kadnode | wc -l )
-  if [ $testkadnode -eq 1 ]; then
+  if [ -f /usr/bin/kadnode  ]; then
 echo kadnode
 
 mv /etc/config/kadnode /etc/config/kadnode-orig
